@@ -1,14 +1,23 @@
 package com.atech.financialapp.component.nav
 
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -19,18 +28,17 @@ fun BottomBar(
     navController: NavController
 ) {
 
-    val currentRoute = navController
-        .currentBackStackEntryAsState()
-        .value?.destination?.route
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentRoute = navBackStackEntry?.destination?.route
 
     NavigationBar(
+        modifier = Modifier.fillMaxWidth(),
         containerColor = Color(0xFFF3EDF7)
     ) {
 
         for (bar in Bar.items) {
-            val isSelected = bar.route.toString() == currentRoute.toString()
+            val isSelected = (bar.route.toString() == currentRoute.toString())
 
-            // Item навигационной панели
             NavigationBarItem(
                 selected = isSelected,
 
@@ -44,6 +52,7 @@ fun BottomBar(
                     navController.navigate(bar.route) {
                         // Очищаем стек до текущего маршрута
                         popUpTo(navController.graph.startDestinationId) {
+                            inclusive = true
                             saveState = true
                         }
                         // Не добавляем дубликаты экранов в стек
@@ -57,8 +66,8 @@ fun BottomBar(
                     Icon(
                         painter = painterResource(id = bar.icon),
                         contentDescription = stringResource(id = bar.title), // Описание иконки
-//                        tint = if (isSelected) MaterialTheme.colorScheme.surfaceTint
-//                        else MaterialTheme.colorScheme.inverseOnSurface
+//                            tint = if (isSelected) Color(0xFF29E881)
+//                            else Color(0xFFD4FAE6)
                     )
                 },
 
