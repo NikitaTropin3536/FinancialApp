@@ -1,76 +1,85 @@
 package com.atech.financialapp.component.nav
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.atech.financialapp.navigation.Bar
+import com.atech.financialapp.navigation.navBarItems
 
 @Composable
 fun BottomBar(
-    navController: NavController
+    navHostController: NavHostController,
 ) {
 
-    val currentRoute = navController
-        .currentBackStackEntryAsState()
-        .value?.destination?.route
+    // Получаем текущее состояние экрана в стеке навигации
+    val navBackStackEntry by navHostController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
 
     NavigationBar(
-        containerColor = Color(0xFFF3EDF7)
+        modifier = Modifier.fillMaxWidth(),
+        containerColor = MaterialTheme.colorScheme.surface,
     ) {
 
-        for (bar in Bar.items) {
-            val isSelected = bar.route.toString() == currentRoute.toString()
+        navBarItems.forEach { item ->
 
-            // Item навигационной панели
+            // Определяем, выбран ли текущий пункт навигации
+            val isSelected = currentDestination?.hierarchy?.any {
+                it.hasRoute(item.route::class)
+            } == true
+
             NavigationBarItem(
-                selected = isSelected,
+                selected = isSelected, // Передаем статус выбора элемента
 
                 colors = NavigationBarItemDefaults.colors(
-                    selectedIconColor = Color(0xFF29E881),
-                    unselectedIconColor = Color(0xFF1D1B20),
-                    indicatorColor = Color(0xFFD4FAE6)
+                    selectedIconColor = MaterialTheme.colorScheme.surfaceTint,
+                    unselectedIconColor = MaterialTheme.colorScheme.surfaceContainer,
+                    indicatorColor = MaterialTheme.colorScheme.outline,
                 ),
 
                 onClick = {
-                    navController.navigate(bar.route) {
-                        // Очищаем стек до текущего маршрута
-                        popUpTo(navController.graph.startDestinationId) {
-                            saveState = true
+                    navHostController.navigate(item.route) {
+                        // Очищаем предыдущий экран перед переходом
+                        popUpTo(navHostController.graph.findStartDestination().id) {
+                            inclusive = true   // Включаем удаление предыдущего экрана
+                            saveState = true   // Сохраняем состояние предыдущего экрана
                         }
-                        // Не добавляем дубликаты экранов в стек
-                        launchSingleTop = true
-                        // Сохраняем состояние экрана
-                        restoreState = true
+                        launchSingleTop = true // Переход заменяет верхний экран
+                        restoreState = true    // Восстанавливаем состояние нового экрана
                     }
                 },
 
                 icon = {
                     Icon(
-                        painter = painterResource(id = bar.icon),
-                        contentDescription = stringResource(id = bar.title), // Описание иконки
-//                        tint = if (isSelected) MaterialTheme.colorScheme.surfaceTint
-//                        else MaterialTheme.colorScheme.inverseOnSurface
+                        painter = painterResource(id = item.icon),
+                        contentDescription = stringResource(id = item.title)
                     )
                 },
 
                 label = {
                     Text(
-                        text = stringResource(id = bar.title),
-                        color = Color(0xFF1D1B20),
-//                        fontWeight = if (isSelected) FontWeight(600)
-//                        else FontWeight(500),
-                        fontSize = 12.sp,
-                        lineHeight = 16.sp,
-                        letterSpacing = 0.5.sp
+                        text = stringResource(id = item.title),
+                        color = MaterialTheme.colorScheme.surfaceContainer,
+                        fontWeight = if (isSelected) FontWeight.ExtraBold
+                        else FontWeight.Medium,
+                        fontSize = 12.sp,      // Размер шрифта
+                        lineHeight = 16.sp,    // Высота строки
                     )
                 }
 

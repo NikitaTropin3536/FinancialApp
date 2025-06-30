@@ -12,8 +12,8 @@ import com.atech.financialapp.navigation.NavGraph.Settings.settings
 
 @Composable
 fun Navigation(
-    modifier: Modifier = Modifier,
     navHostController: NavHostController,
+    modifier: Modifier = Modifier,
 ) {
     NavHost(
         navController = navHostController,

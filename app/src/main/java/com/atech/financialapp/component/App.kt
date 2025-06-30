@@ -18,25 +18,24 @@ import com.atech.financialapp.ui.theme.FinancialAppTheme
 @Composable
 fun App() {
     FinancialAppTheme {
-
-        val navController = rememberNavController()
-
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
+            val navController = rememberNavController()
+
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
-                contentWindowInsets = WindowInsets.ime,
                 bottomBar = {
-                    BottomBar(navController)
+                    BottomBar(navHostController = navController)
                 },
+                contentWindowInsets = WindowInsets.ime,
             ) { innerPadding ->
                 Navigation(
+                    navHostController = navController,
                     modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background),
-                    navHostController = navController
                 )
             }
         }

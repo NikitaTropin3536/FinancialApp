@@ -7,11 +7,9 @@ import com.atech.financialapp.screens.ArticlesScreen
 import com.atech.financialapp.screens.ExpensesScreen
 import com.atech.financialapp.screens.IncomeScreen
 import com.atech.financialapp.screens.SettingsScreen
-import kotlinx.serialization.Serializable
 
 sealed interface NavGraph {
 
-    @Serializable
     data object Expenses : NavGraph {
         fun NavGraphBuilder.expenses() {
             composable<Route.Expenses> {
@@ -20,7 +18,6 @@ sealed interface NavGraph {
         }
     }
 
-    @Serializable
     data object Income : NavGraph {
         fun NavGraphBuilder.income() {
             composable<Route.Income> {
@@ -29,7 +26,6 @@ sealed interface NavGraph {
         }
     }
 
-    @Serializable
     data object Account : NavGraph {
         fun NavGraphBuilder.account() {
             composable<Route.Account> {
@@ -38,7 +34,6 @@ sealed interface NavGraph {
         }
     }
 
-    @Serializable
     data object Articles : NavGraph {
         fun NavGraphBuilder.articles() {
             composable<Route.Articles> {
@@ -47,7 +42,6 @@ sealed interface NavGraph {
         }
     }
 
-    @Serializable
     data object Settings : NavGraph {
         fun NavGraphBuilder.settings() {
             composable<Route.Settings> {
