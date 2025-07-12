@@ -16,6 +16,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.atech.financialapp.component.nav.BottomBar
+import com.atech.financialapp.component.nav.TopBar
 import com.atech.financialapp.navigation.NavItem
 import com.atech.financialapp.navigation.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
@@ -40,6 +41,9 @@ fun App() {
 
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
+                topBar = {
+                    TopBar(selected = currentItem)
+                },
                 bottomBar = {
                     BottomBar(
                         selected = currentItem,
