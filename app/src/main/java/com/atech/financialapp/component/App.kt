@@ -9,9 +9,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.atech.financialapp.component.nav.BottomBar
+import com.atech.financialapp.navigation.NavItem
 import com.atech.financialapp.navigation.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
 
@@ -23,10 +28,23 @@ fun App() {
         ) {
             val navController = rememberNavController()
 
+            // Получаем текущее состояние экрана в стеке навигации
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val destination = navBackStackEntry?.destination
+
+            val currentItem = NavItem.barItems.firstOrNull { item ->
+                destination?.hierarchy?.any {
+                    it.hasRoute(item.route::class)
+                } == true
+            }
+
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 bottomBar = {
-                    BottomBar(navHostController = navController)
+                    BottomBar(
+                        selected = currentItem,
+                        navHostController = navController
+                    )
                 },
                 contentWindowInsets = WindowInsets.ime,
             ) { innerPadding ->
