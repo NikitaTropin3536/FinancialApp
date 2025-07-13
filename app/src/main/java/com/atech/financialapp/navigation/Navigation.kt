@@ -5,7 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.atech.financialapp.navigation.NavGraph.Account.account
-import com.atech.financialapp.navigation.NavGraph.Articles.articles
+import com.atech.financialapp.navigation.NavGraph.Categories.categories
 import com.atech.financialapp.navigation.NavGraph.Expenses.expenses
 import com.atech.financialapp.navigation.NavGraph.Income.income
 import com.atech.financialapp.navigation.NavGraph.Settings.settings
@@ -23,7 +23,7 @@ fun Navigation(
         expenses()
         income()
         account()
-        articles()
+        categories()
         settings()
     }
 }

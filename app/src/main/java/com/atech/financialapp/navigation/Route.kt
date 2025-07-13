@@ -18,7 +18,7 @@ sealed interface Route {
     data object Account : Route
 
     @Serializable
-    data object Articles : Route
+    data object Categories : Route
 
     @Serializable
     data object Settings : Route

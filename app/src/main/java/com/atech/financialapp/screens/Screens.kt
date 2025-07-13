@@ -50,7 +50,7 @@ fun AccountScreen() {
 }
 
 @Composable
-fun ArticlesScreen() {
+fun CategoriesScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,6 +58,6 @@ fun ArticlesScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Articles")
+        Text(text = "Categories")
     }
 }
