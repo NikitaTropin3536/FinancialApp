@@ -7,6 +7,7 @@ import com.atech.financialapp.screens.ArticlesScreen
 import com.atech.financialapp.screens.ExpensesScreen
 import com.atech.financialapp.screens.IncomeScreen
 import com.atech.financialapp.screens.SettingsScreen
+import com.atech.financialapp.ui.theme.FinancialAppTheme
 
 sealed interface NavGraph {
 

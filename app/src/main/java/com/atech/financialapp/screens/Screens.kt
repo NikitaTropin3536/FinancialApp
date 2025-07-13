@@ -61,16 +61,3 @@ fun ArticlesScreen() {
         Text(text = "Articles")
     }
 }
-
-@Composable
-fun SettingsScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = "Settings")
-    }
-}
