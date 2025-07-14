@@ -12,7 +12,7 @@ sealed interface Route {
     data object Expenses : Route
 
     @Serializable
-    data object Income : Route
+    data object Incomes : Route
 
     @Serializable
     data object Account : Route

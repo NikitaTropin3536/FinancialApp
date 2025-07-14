@@ -18,10 +18,10 @@ sealed class NavItem(
         route = Route.Expenses
     )
 
-    data object Income : NavItem(
-        title = R.string.income,
-        icon = R.drawable.ic_income,
-        route = Route.Income,
+    data object Incomes : NavItem(
+        title = R.string.incomes,
+        icon = R.drawable.ic_incomes,
+        route = Route.Incomes,
     )
 
     data object Account : NavItem(
@@ -44,7 +44,7 @@ sealed class NavItem(
 
     companion object {
         val barItems = listOf(
-            Expenses, Income,
+            Expenses, Incomes,
             Account, Categories,
             Settings
         )

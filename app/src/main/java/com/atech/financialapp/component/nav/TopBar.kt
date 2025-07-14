@@ -36,7 +36,7 @@ fun TopBar(
                 Icon(
                     painter = painterResource(
                         when (selected) {
-                            is NavItem.Expenses, is NavItem.Income -> R.drawable.ic_mdi_history
+                            is NavItem.Expenses, is NavItem.Incomes -> R.drawable.ic_mdi_history
                             is NavItem.Account -> R.drawable.ic_edit
                             else -> R.drawable.ic_chevron_right
                         }

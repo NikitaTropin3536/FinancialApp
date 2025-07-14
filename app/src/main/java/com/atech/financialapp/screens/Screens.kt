@@ -32,7 +32,7 @@ fun IncomeScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(text = "Income")
+        Text(text = "Incomes")
     }
 }
 

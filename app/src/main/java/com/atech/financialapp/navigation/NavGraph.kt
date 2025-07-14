@@ -18,9 +18,9 @@ sealed interface NavGraph {
         }
     }
 
-    data object Income : NavGraph {
-        fun NavGraphBuilder.income() {
-            composable<Route.Income> {
+    data object Incomes : NavGraph {
+        fun NavGraphBuilder.incomes() {
+            composable<Route.Incomes> {
                 IncomeScreen()
             }
         }

@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import com.atech.financialapp.navigation.NavGraph.Account.account
 import com.atech.financialapp.navigation.NavGraph.Categories.categories
 import com.atech.financialapp.navigation.NavGraph.Expenses.expenses
-import com.atech.financialapp.navigation.NavGraph.Income.income
+import com.atech.financialapp.navigation.NavGraph.Incomes.incomes
 import com.atech.financialapp.navigation.NavGraph.Settings.settings
 
 @Composable
@@ -21,7 +21,7 @@ fun Navigation(
         modifier = modifier,
     ) {
         expenses()
-        income()
+        incomes()
         account()
         categories()
         settings()

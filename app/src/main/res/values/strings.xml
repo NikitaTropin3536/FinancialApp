@@ -2,7 +2,7 @@
     <string name="app_name">FinancialApp</string>
 
     <string name="expenses">Expenses</string>
-    <string name="income">Income</string>
+    <string name="incomes">Incomes</string>
     <string name="account">Account</string>
     <string name="categories">Categories</string>
     <string name="settings">Settings</string>
