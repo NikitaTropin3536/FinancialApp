@@ -21,7 +21,9 @@ import com.atech.financialapp.navigation.NavItem
 import com.atech.financialapp.navigation.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
 import com.atech.financialapp.viewmodels.CategoriesViewModel
+import com.atech.financialapp.viewmodels.ExpensesViewModel
 
+val expensesViewModel = ExpensesViewModel()
 val categoriesViewModel = CategoriesViewModel()
 
 @Composable
@@ -62,6 +64,7 @@ fun App() {
                         .padding(innerPadding)
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background),
+                    expenses = expensesViewModel.expenses,
                     categories = categoriesViewModel.items
                 )
                 /** TODO Наверно View model можно просто пихнуть в Navigation**/
