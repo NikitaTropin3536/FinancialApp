@@ -48,16 +48,3 @@ fun AccountScreen() {
         Text(text = "Account")
     }
 }
-
-@Composable
-fun CategoriesScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Text(text = "Categories")
-    }
-}
