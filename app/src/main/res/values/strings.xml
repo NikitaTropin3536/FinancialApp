@@ -10,4 +10,7 @@
     <string name="unKnown">Unknown</string>
 
     <string name="total">Total</string>
+
+    <string name="balance">Balance</string>
+    <string name="currency">Currency</string>
 </resources>
