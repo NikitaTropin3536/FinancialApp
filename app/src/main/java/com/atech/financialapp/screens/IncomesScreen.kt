@@ -33,7 +33,7 @@ fun IncomesScreen(
         ColumnItem(
             title = stringResource(R.string.total),
             value = "600 000 ₽",
-            color = Color.White
+            color = MaterialTheme.colorScheme.surfaceContainerLow
         )
         Divider(color = MaterialTheme.colorScheme.surfaceDim)
 

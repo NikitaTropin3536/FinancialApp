@@ -33,7 +33,7 @@ fun ExpensesScreen(
         ColumnItem(
             title = stringResource(R.string.total),
             value = "800 000 ₽",
-            color = Color.White
+            color = MaterialTheme.colorScheme.surfaceContainerLow
         )
         Divider(color = MaterialTheme.colorScheme.surfaceDim)
 
