@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.atech.financialapp.component.items.ColumnItem
-import com.atech.financialapp.component.search.CategorySearchBar
+import com.atech.financialapp.component.others.CategorySearchBar
 import com.atech.financialapp.domain.Category
 
 @Composable

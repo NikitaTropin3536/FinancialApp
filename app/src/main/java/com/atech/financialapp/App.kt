@@ -1,4 +1,4 @@
-package com.atech.financialapp.component
+package com.atech.financialapp
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.WindowInsets
@@ -18,7 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.atech.financialapp.component.nav.BottomBar
 import com.atech.financialapp.component.nav.TopBar
 import com.atech.financialapp.navigation.NavItem
-import com.atech.financialapp.navigation.Navigation
+import com.atech.financialapp.component.nav.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
 import com.atech.financialapp.viewmodels.CategoriesViewModel
 import com.atech.financialapp.viewmodels.ExpensesViewModel

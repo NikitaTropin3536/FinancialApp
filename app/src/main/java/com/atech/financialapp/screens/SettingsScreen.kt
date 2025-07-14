@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.atech.financialapp.R
 import com.atech.financialapp.component.items.ColumnItem
-import com.atech.financialapp.component.switch.ThemeSwitch
+import com.atech.financialapp.component.others.ThemeSwitch
 import com.atech.financialapp.ui.theme.FinancialAppTheme
 
 val settingsItems = listOf(

@@ -1,4 +1,4 @@
-package com.atech.financialapp.component.switch
+package com.atech.financialapp.component.others
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch

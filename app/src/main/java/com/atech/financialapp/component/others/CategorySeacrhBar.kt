@@ -1,4 +1,4 @@
-package com.atech.financialapp.component.search
+package com.atech.financialapp.component.others
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
