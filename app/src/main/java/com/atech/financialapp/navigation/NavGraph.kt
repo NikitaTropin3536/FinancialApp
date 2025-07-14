@@ -7,7 +7,7 @@ import com.atech.financialapp.domain.TransactionResponse
 import com.atech.financialapp.screens.AccountScreen
 import com.atech.financialapp.screens.CategoriesScreen
 import com.atech.financialapp.screens.ExpensesScreen
-import com.atech.financialapp.screens.IncomeScreen
+import com.atech.financialapp.screens.IncomesScreen
 import com.atech.financialapp.screens.SettingsScreen
 
 sealed interface NavGraph {
@@ -21,9 +21,9 @@ sealed interface NavGraph {
     }
 
     data object Incomes : NavGraph {
-        fun NavGraphBuilder.incomes() {
+        fun NavGraphBuilder.incomes(incomes: List<TransactionResponse>) {
             composable<Route.Incomes> {
-                IncomeScreen()
+                IncomesScreen(incomes)
             }
         }
     }

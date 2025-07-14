@@ -17,6 +17,7 @@ fun Navigation(
     navHostController: NavHostController,
     modifier: Modifier = Modifier,
     expenses: List<TransactionResponse>,
+    incomes: List<TransactionResponse>,
     categories: List<Category>,
 ) {
     NavHost(
@@ -25,7 +26,7 @@ fun Navigation(
         modifier = modifier,
     ) {
         expenses(expenses)
-        incomes()
+        incomes(incomes)
         account()
         categories(categories)
         settings()
