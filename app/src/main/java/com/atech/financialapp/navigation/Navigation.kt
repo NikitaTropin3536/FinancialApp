@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.atech.financialapp.domain.Category
 import com.atech.financialapp.navigation.NavGraph.Account.account
 import com.atech.financialapp.navigation.NavGraph.Categories.categories
 import com.atech.financialapp.navigation.NavGraph.Expenses.expenses
@@ -14,6 +15,7 @@ import com.atech.financialapp.navigation.NavGraph.Settings.settings
 fun Navigation(
     navHostController: NavHostController,
     modifier: Modifier = Modifier,
+    categories: List<Category>
 ) {
     NavHost(
         navController = navHostController,
@@ -23,7 +25,7 @@ fun Navigation(
         expenses()
         incomes()
         account()
-        categories()
+        categories(categories)
         settings()
     }
 }

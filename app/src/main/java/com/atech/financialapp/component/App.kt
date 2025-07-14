@@ -20,6 +20,9 @@ import com.atech.financialapp.component.nav.TopBar
 import com.atech.financialapp.navigation.NavItem
 import com.atech.financialapp.navigation.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
+import com.atech.financialapp.viewmodels.CategoriesViewModel
+
+val categoriesViewModel = CategoriesViewModel()
 
 @Composable
 fun App() {
@@ -27,6 +30,7 @@ fun App() {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
+
             val navController = rememberNavController()
 
             // Получаем текущее состояние экрана в стеке навигации
@@ -58,7 +62,9 @@ fun App() {
                         .padding(innerPadding)
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background),
+                    categories = categoriesViewModel.items
                 )
+                /** TODO Наверно View model можно просто пихнуть в Navigation**/
             }
         }
     }
