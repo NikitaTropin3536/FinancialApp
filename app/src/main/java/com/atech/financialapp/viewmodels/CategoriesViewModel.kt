@@ -1,9 +1,10 @@
 package com.atech.financialapp.viewmodels
 
 import androidx.compose.runtime.mutableStateListOf
+import androidx.lifecycle.ViewModel
 import com.atech.financialapp.domain.Category
 
-class CategoriesViewModel {
+class CategoriesViewModel : ViewModel() {
 
     val items = mutableStateListOf(
 
