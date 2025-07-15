@@ -22,7 +22,7 @@ import com.atech.financialapp.ui.theme.FinancialAppTheme
 
 @Preview
 @Composable
-fun ColumnItemPreview() {
+private fun ColumnItemPreview() {
     FinancialAppTheme {
         ColumnItem()
     }
