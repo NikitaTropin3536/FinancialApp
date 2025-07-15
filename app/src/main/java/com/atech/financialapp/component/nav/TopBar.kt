@@ -20,6 +20,7 @@ fun TopBar(
 ) {
 
     CenterAlignedTopAppBar(
+
         title = {
             Text(
                 text = stringResource(id = (selected?.title ?: R.string.unKnown)),
@@ -30,9 +31,11 @@ fun TopBar(
         navigationIcon = {},
 
         actions = {
+
             IconButton(
                 onClick = { }
             ) {
+
                 Icon(
                     painter = painterResource(
                         when (selected) {
@@ -44,6 +47,7 @@ fun TopBar(
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.surfaceContainer
                 )
+
             }
         },
 

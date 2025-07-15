@@ -33,12 +33,12 @@ fun BottomBar(
             val isSelected = (selected == item)
 
             NavigationBarItem(
-                selected = isSelected, // Передаем статус выбора элемента
+                selected = isSelected,
 
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = MaterialTheme.colorScheme.surfaceTint,
                     unselectedIconColor = MaterialTheme.colorScheme.surfaceContainer,
-                    indicatorColor = MaterialTheme.colorScheme.outline,
+                    indicatorColor = MaterialTheme.colorScheme.surfaceContainerLow,
                 ),
 
                 onClick = {
@@ -63,11 +63,11 @@ fun BottomBar(
                 label = {
                     Text(
                         text = stringResource(id = item.title),
-                        color = MaterialTheme.colorScheme.surfaceContainer,
+                        color = MaterialTheme.colorScheme.inverseOnSurface,
                         fontWeight = if (isSelected) FontWeight.ExtraBold
                         else FontWeight.Medium,
-                        fontSize = 12.sp,      // Размер шрифта
-                        lineHeight = 16.sp,    // Высота строки
+                        fontSize = 12.sp,
+                        lineHeight = 16.sp,
                     )
                 }
 
