@@ -18,13 +18,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.atech.financialapp.ui.theme.FinancialAppTheme
+
+@Preview
+@Composable
+fun ColumnItemPreview() {
+    FinancialAppTheme {
+        ColumnItem()
+    }
+}
 
 /**
  * Компонент представления чего - то
- * (расход, доход, дата, сумма, статья, валюта, настройка)
  *
- * @param title Назавние элемента
- * @param description Описание (опционально)
+ * @param title Заголовок элемента
+ * @param comment Комментарий (опционально)
  * @param value Значение элемента (опционально)
  * @param emoji Символ эмодзи (опционально)
  * @param emjColor Фоновый цвет иконки
@@ -33,15 +41,14 @@ import androidx.compose.ui.unit.sp
  * @param viewRight View справа (опционально)
  * @param onClick Обработчик события нажатия
  */
-@Preview
 @Composable
 fun ColumnItem(
     title: String = "",
-    description: String = "",
+    comment: String = "",
     value: String = "",
     emoji: String? = null,
     emjColor: Color = MaterialTheme.colorScheme.surfaceContainerLow,
-    color: Color = MaterialTheme.colorScheme.surface,
+    color: Color = MaterialTheme.colorScheme.onSurface,
     highEmphasis: Boolean = false,
     viewRight: (@Composable () -> Unit)? = null,
     onClick: () -> Unit = {}
@@ -51,7 +58,9 @@ fun ColumnItem(
         modifier = Modifier
             .background(color)
             .fillMaxWidth()
-            .defaultMinSize(minHeight = (if (highEmphasis) 68 else 56).dp)
+            .defaultMinSize(
+                minHeight = (if (highEmphasis) 68 else 56).dp
+            )
             .clickable(onClick = onClick)
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -74,14 +83,14 @@ fun ColumnItem(
 
                     style = TextStyle(
                         textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.SemiBold, // Полужирный шрифт
+                        fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.inverseOnSurface
                     ),
 
-                    autoSize = TextAutoSize.StepBased( // Авторазмер текста с пошаговым изменением размера
-                        minFontSize = with(LocalDensity.current) { 8.dp.toSp() },  // Минимальный размер
-                        maxFontSize = with(LocalDensity.current) { 12.dp.toSp() }, // Максимальный размер
-                        stepSize = with(LocalDensity.current) { 4.dp.toSp() }      // Шаг изменения
+                    autoSize = TextAutoSize.StepBased(
+                        minFontSize = with(LocalDensity.current) { 8.dp.toSp() },
+                        maxFontSize = with(LocalDensity.current) { 12.dp.toSp() },
+                        stepSize = with(LocalDensity.current) { 2.dp.toSp() }
                     )
 
                 )
@@ -100,9 +109,9 @@ fun ColumnItem(
                 style = MaterialTheme.typography.bodyLarge
             )
 
-            if (description.isNotBlank()) {
+            if (comment.isNotBlank()) {
                 Text(
-                    text = description,
+                    text = comment,
                     color = MaterialTheme.colorScheme.surfaceContainer,
                     style = MaterialTheme.typography.bodyMedium,
                     fontSize = 12.sp

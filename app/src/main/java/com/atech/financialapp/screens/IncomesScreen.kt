@@ -49,7 +49,7 @@ fun IncomesScreen(
 
                 ColumnItem(
                     title = income.category.name,
-                    description = income.comment ?: "",
+                    comment = income.comment ?: "",
                     value = income.amount
                             + " "
                             + Currency.getInstance(income.account.currency).symbol,

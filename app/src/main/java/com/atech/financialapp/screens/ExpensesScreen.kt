@@ -49,7 +49,7 @@ fun ExpensesScreen(
 
                 ColumnItem(
                     title = expense.category.name,
-                    description = expense.comment ?: "",
+                    comment = expense.comment ?: "",
                     value = expense.amount
                             + " "
                             + Currency.getInstance(expense.account.currency).symbol,
