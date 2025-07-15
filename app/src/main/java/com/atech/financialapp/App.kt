@@ -23,10 +23,12 @@ import com.atech.financialapp.ui.theme.FinancialAppTheme
 import com.atech.financialapp.viewmodels.CategoriesViewModel
 import com.atech.financialapp.viewmodels.ExpensesViewModel
 import com.atech.financialapp.viewmodels.IncomesViewModel
+import com.atech.financialapp.viewmodels.SettingsViewModel
 
 val expensesViewModel = ExpensesViewModel()
 val incomesViewModel = IncomesViewModel()
 val categoriesViewModel = CategoriesViewModel()
+val setVM = SettingsViewModel()
 
 @Composable
 fun App() {
@@ -68,9 +70,9 @@ fun App() {
                         .background(MaterialTheme.colorScheme.background),
                     expenses = expensesViewModel.expenses,
                     incomes = incomesViewModel.incomes,
-                    categories = categoriesViewModel.items
+                    categories = categoriesViewModel.items,
+                    settingsViewModel = setVM
                 )
-                /** TODO Наверно View model можно просто пихнуть в Navigation**/
             }
         }
     }

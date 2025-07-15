@@ -12,6 +12,7 @@ import com.atech.financialapp.navigation.NavGraph.Expenses.expenses
 import com.atech.financialapp.navigation.NavGraph.Incomes.incomes
 import com.atech.financialapp.navigation.NavGraph.Settings.settings
 import com.atech.financialapp.navigation.Route
+import com.atech.financialapp.viewmodels.SettingsViewModel
 
 @Composable
 fun Navigation(
@@ -20,6 +21,7 @@ fun Navigation(
     expenses: List<TransactionResponse>,
     incomes: List<TransactionResponse>,
     categories: List<Category>,
+    settingsViewModel: SettingsViewModel
 ) {
 
     NavHost(
@@ -32,7 +34,7 @@ fun Navigation(
         incomes(incomes)
         account()
         categories(categories)
-        settings()
+        settings(settingsViewModel)
 
     }
 

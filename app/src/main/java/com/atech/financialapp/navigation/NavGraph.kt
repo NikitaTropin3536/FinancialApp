@@ -9,6 +9,7 @@ import com.atech.financialapp.screens.CategoriesScreen
 import com.atech.financialapp.screens.ExpensesScreen
 import com.atech.financialapp.screens.IncomesScreen
 import com.atech.financialapp.screens.SettingsScreen
+import com.atech.financialapp.viewmodels.SettingsViewModel
 
 sealed interface NavGraph {
 
@@ -45,9 +46,9 @@ sealed interface NavGraph {
     }
 
     data object Settings : NavGraph {
-        fun NavGraphBuilder.settings() {
+        fun NavGraphBuilder.settings(settingsViewModel: SettingsViewModel) {
             composable<Route.Settings> {
-                SettingsScreen()
+                SettingsScreen(setVM = settingsViewModel)
             }
         }
     }

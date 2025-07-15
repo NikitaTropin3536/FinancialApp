@@ -5,19 +5,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.atech.financialapp.R
 import com.atech.financialapp.component.items.ColumnItem
 import com.atech.financialapp.component.others.ThemeSwitch
-import com.atech.financialapp.ui.theme.FinancialAppTheme
+import com.atech.financialapp.viewmodels.SettingsViewModel
 
 val settingsItems = listOf(
     "Основной цвет",
@@ -29,33 +27,35 @@ val settingsItems = listOf(
     "О программе"
 )
 
-@Preview(showBackground = true)
 @Composable
-private fun SettingsScreenPreview() {
-    FinancialAppTheme {
-        SettingsScreen()
-    }
-}
-
-@Composable
-fun SettingsScreen() {
+fun SettingsScreen(
+    setVM: SettingsViewModel
+) {
 
     LazyColumn(
         modifier = Modifier.background(
-            Color.White
+            MaterialTheme.colorScheme.onSurface
         ),
-        contentPadding = PaddingValues(bottom = 1.dp),  // Нижний внутренний отступ
-        verticalArrangement = Arrangement.spacedBy(1.dp)// Пространство между элементами списка
+        contentPadding = PaddingValues(bottom = 1.dp),
+        verticalArrangement = Arrangement.spacedBy(1.dp)
     ) {
 
         item {
 
             ColumnItem(
                 title = "Тёмная тема",
-                color = Color.White,
-                viewRight = { ThemeSwitch() }
+                viewRight = {
+                    ThemeSwitch(
+                        darkThemeChecked = setVM.darkThemeChecked.value,
+                        onDarkThemeCheckedChange = setVM::onDarkThemeCheckedChange
+                    )
+                }
             )
-            Divider(color = MaterialTheme.colorScheme.surfaceDim)
+
+            HorizontalDivider(
+                color = MaterialTheme.colorScheme.surfaceDim,
+                thickness = 1.dp
+            )
 
         }
 
@@ -63,7 +63,6 @@ fun SettingsScreen() {
 
             ColumnItem(
                 title = item,
-                color = Color.White,
                 viewRight = {
                     Icon(
                         painter = painterResource(R.drawable.ic_arrow_right),
@@ -72,7 +71,11 @@ fun SettingsScreen() {
                     )
                 }
             )
-            Divider(color = MaterialTheme.colorScheme.surfaceDim)
+
+            HorizontalDivider(
+                color = MaterialTheme.colorScheme.surfaceDim,
+                thickness = 1.dp
+            )
 
         }
 
