@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.atech.financialapp.R
 import com.atech.financialapp.component.items.ColumnItem
 import com.atech.financialapp.component.others.ThemeSwitch
@@ -29,7 +30,7 @@ val settingsItems = listOf(
 
 @Composable
 fun SettingsScreen(
-    setVM: SettingsViewModel
+    setVM: SettingsViewModel = viewModel()
 ) {
 
     LazyColumn(

@@ -15,13 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.atech.financialapp.R
 import com.atech.financialapp.component.items.ColumnItem
-import com.atech.financialapp.domain.TransactionResponse
+import com.atech.financialapp.viewmodels.IncomesViewModel
 
 @Composable
 fun IncomesScreen(
-    incomes: List<TransactionResponse> = emptyList()
+    incomesVM: IncomesViewModel = viewModel()
 ) {
 
     Column(
@@ -46,7 +47,7 @@ fun IncomesScreen(
         ) {
 
             items(
-                items = incomes,
+                items = incomesVM.incomes,
                 key = { income -> income.id }
             ) { income ->
 

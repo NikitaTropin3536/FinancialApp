@@ -10,15 +10,15 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.atech.financialapp.component.items.ColumnItem
 import com.atech.financialapp.component.others.CategorySearchBar
-import com.atech.financialapp.domain.Category
+import com.atech.financialapp.viewmodels.CategoriesViewModel
 
 @Composable
 fun CategoriesScreen(
-    items: List<Category> = emptyList()
+    categoriesVM: CategoriesViewModel = viewModel()
 ) {
 
     Column(
@@ -28,7 +28,7 @@ fun CategoriesScreen(
     ) {
 
         CategorySearchBar()
-        
+
         HorizontalDivider(
             color = MaterialTheme.colorScheme.surfaceDim,
             thickness = 1.dp
@@ -40,7 +40,7 @@ fun CategoriesScreen(
         ) {
 
             items(
-                items = items,
+                items = categoriesVM.items,
                 key = { item -> item.id }
             ) { item ->
 

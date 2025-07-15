@@ -20,19 +20,11 @@ import com.atech.financialapp.component.nav.TopBar
 import com.atech.financialapp.navigation.NavItem
 import com.atech.financialapp.component.nav.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
-import com.atech.financialapp.viewmodels.CategoriesViewModel
-import com.atech.financialapp.viewmodels.ExpensesViewModel
-import com.atech.financialapp.viewmodels.IncomesViewModel
-import com.atech.financialapp.viewmodels.SettingsViewModel
-
-val expensesViewModel = ExpensesViewModel()
-val incomesViewModel = IncomesViewModel()
-val categoriesViewModel = CategoriesViewModel()
-val setVM = SettingsViewModel()
 
 @Composable
 fun App() {
     FinancialAppTheme {
+
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
@@ -61,19 +53,20 @@ fun App() {
                     )
                 },
                 contentWindowInsets = WindowInsets.ime,
-            ) { innerPadding ->
+            ) {
+
+                    innerPadding ->
                 Navigation(
                     navHostController = navController,
                     modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background),
-                    expenses = expensesViewModel.expenses,
-                    incomes = incomesViewModel.incomes,
-                    categories = categoriesViewModel.items,
-                    settingsViewModel = setVM
                 )
+
             }
+
         }
+
     }
 }
