@@ -20,7 +20,7 @@ import com.atech.financialapp.ui.theme.FinancialAppTheme
 
 @Preview(showBackground = true)
 @Composable
-fun CategorySearchBarPreview() {
+private fun CategorySearchBarPreview() {
     FinancialAppTheme {
         CategorySearchBar()
     }
@@ -44,8 +44,8 @@ fun CategorySearchBar() {
         Text(
             text = "Найти статью",
             modifier = Modifier.weight(1F),
-            color = MaterialTheme.colorScheme.surfaceContainer,
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.surfaceContainer
         )
 
         Icon(
