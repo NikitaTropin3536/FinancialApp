@@ -3,7 +3,7 @@ package com.atech.financialapp.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -30,39 +30,43 @@ private fun AccountScreenPreview() {
 fun AccountScreen() {
     Column(
         modifier = Modifier.background(
-            Color.White
+            MaterialTheme.colorScheme.onSurface
         ),
         verticalArrangement = Arrangement.spacedBy(1.dp)
     ) {
 
         ColumnItem(
             title = stringResource(R.string.balance),
-            value = "-600 000 $",
+            value = "-600 000 ₽",
             emoji = "\uD83D\uDCB0",
+            emjColor = MaterialTheme.colorScheme.onSurface,
             color = MaterialTheme.colorScheme.surfaceContainerLow,
 
             viewRight = {
                 Icon(
                     painter = painterResource(R.drawable.ic_chevron_right),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.secondaryContainer
+                    tint = MaterialTheme.colorScheme.surfaceDim
                 )
             }
 
         )
 
-        Divider(color = MaterialTheme.colorScheme.surfaceDim)
+        HorizontalDivider(
+            color = MaterialTheme.colorScheme.surfaceDim,
+            thickness = 1.dp
+        )
 
         ColumnItem(
             title = stringResource(R.string.currency),
-            value = "$",
+            value = "₽",
             color = MaterialTheme.colorScheme.surfaceContainerLow,
 
             viewRight = {
                 Icon(
                     painter = painterResource(R.drawable.ic_chevron_right),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.secondaryContainer
+                    tint = MaterialTheme.colorScheme.surfaceDim
                 )
             }
 
