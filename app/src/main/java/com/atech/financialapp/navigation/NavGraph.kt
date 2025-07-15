@@ -2,8 +2,6 @@ package com.atech.financialapp.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.atech.financialapp.domain.Category
-import com.atech.financialapp.domain.TransactionResponse
 import com.atech.financialapp.screens.AccountScreen
 import com.atech.financialapp.screens.CategoriesScreen
 import com.atech.financialapp.screens.ExpensesScreen
@@ -13,17 +11,17 @@ import com.atech.financialapp.screens.SettingsScreen
 sealed interface NavGraph {
 
     data object Expenses : NavGraph {
-        fun NavGraphBuilder.expenses(expenses: List<TransactionResponse>) {
+        fun NavGraphBuilder.expenses() {
             composable<Route.Expenses> {
-                ExpensesScreen(expenses)
+                ExpensesScreen()
             }
         }
     }
 
     data object Incomes : NavGraph {
-        fun NavGraphBuilder.incomes(incomes: List<TransactionResponse>) {
+        fun NavGraphBuilder.incomes() {
             composable<Route.Incomes> {
-                IncomesScreen(incomes)
+                IncomesScreen()
             }
         }
     }
@@ -37,9 +35,9 @@ sealed interface NavGraph {
     }
 
     data object Categories : NavGraph {
-        fun NavGraphBuilder.categories(categories: List<Category>) {
+        fun NavGraphBuilder.categories() {
             composable<Route.Categories> {
-                CategoriesScreen(categories)
+                CategoriesScreen()
             }
         }
     }

@@ -15,22 +15,17 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.atech.financialapp.component.btn.AddTransactionButton
 import com.atech.financialapp.component.nav.BottomBar
 import com.atech.financialapp.component.nav.TopBar
 import com.atech.financialapp.navigation.NavItem
 import com.atech.financialapp.component.nav.Navigation
 import com.atech.financialapp.ui.theme.FinancialAppTheme
-import com.atech.financialapp.viewmodels.CategoriesViewModel
-import com.atech.financialapp.viewmodels.ExpensesViewModel
-import com.atech.financialapp.viewmodels.IncomesViewModel
-
-val expensesViewModel = ExpensesViewModel()
-val incomesViewModel = IncomesViewModel()
-val categoriesViewModel = CategoriesViewModel()
 
 @Composable
 fun App() {
     FinancialAppTheme {
+
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
@@ -58,20 +53,26 @@ fun App() {
                         navHostController = navController
                     )
                 },
+                floatingActionButton = {
+                    if (currentItem in listOf(NavItem.Expenses, NavItem.Incomes)) {
+                        AddTransactionButton()
+                    }
+                },
                 contentWindowInsets = WindowInsets.ime,
-            ) { innerPadding ->
+            ) {
+
+                    innerPadding ->
                 Navigation(
                     navHostController = navController,
                     modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize()
                         .background(MaterialTheme.colorScheme.background),
-                    expenses = expensesViewModel.expenses,
-                    incomes = incomesViewModel.incomes,
-                    categories = categoriesViewModel.items
                 )
-                /** TODO Наверно View model можно просто пихнуть в Navigation**/
+
             }
+
         }
+
     }
 }
