@@ -37,9 +37,9 @@ sealed interface NavGraph {
     }
 
     data object Categories : NavGraph {
-        fun NavGraphBuilder.categories(items: List<Category>) {
+        fun NavGraphBuilder.categories(categories: List<Category>) {
             composable<Route.Categories> {
-                CategoriesScreen(items)
+                CategoriesScreen(categories)
             }
         }
     }

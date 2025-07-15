@@ -21,15 +21,19 @@ fun Navigation(
     incomes: List<TransactionResponse>,
     categories: List<Category>,
 ) {
+
     NavHost(
         navController = navHostController,
         startDestination = Route.Expenses,
         modifier = modifier,
     ) {
+
         expenses(expenses)
         incomes(incomes)
         account()
         categories(categories)
         settings()
+
     }
+
 }

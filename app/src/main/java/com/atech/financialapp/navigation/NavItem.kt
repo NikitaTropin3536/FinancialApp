@@ -49,4 +49,5 @@ sealed class NavItem(
             Settings
         )
     }
+
 }
