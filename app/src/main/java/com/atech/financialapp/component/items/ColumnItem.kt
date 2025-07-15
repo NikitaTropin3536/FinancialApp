@@ -89,8 +89,8 @@ fun ColumnItem(
 
                     autoSize = TextAutoSize.StepBased(
                         minFontSize = with(LocalDensity.current) { 8.dp.toSp() },
-                        maxFontSize = with(LocalDensity.current) { 12.dp.toSp() },
-                        stepSize = with(LocalDensity.current) { 2.dp.toSp() }
+                        maxFontSize = with(LocalDensity.current) { 16.dp.toSp() },
+                        stepSize = with(LocalDensity.current) { 8.dp.toSp() }
                     )
 
                 )
