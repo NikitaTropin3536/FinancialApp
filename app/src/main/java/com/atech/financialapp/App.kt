@@ -15,6 +15,7 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.atech.financialapp.component.btn.AddTransactionButton
 import com.atech.financialapp.component.nav.BottomBar
 import com.atech.financialapp.component.nav.TopBar
 import com.atech.financialapp.navigation.NavItem
@@ -51,6 +52,11 @@ fun App() {
                         selected = currentItem,
                         navHostController = navController
                     )
+                },
+                floatingActionButton = {
+                    if (currentItem in listOf(NavItem.Expenses, NavItem.Incomes)) {
+                        AddTransactionButton()
+                    }
                 },
                 contentWindowInsets = WindowInsets.ime,
             ) {
