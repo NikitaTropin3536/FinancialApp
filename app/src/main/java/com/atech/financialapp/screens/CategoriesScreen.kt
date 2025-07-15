@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,18 +23,23 @@ fun CategoriesScreen(
 
     Column(
         modifier = Modifier.background(
-            Color.White
+            MaterialTheme.colorScheme.onSurface
         )
     ) {
 
         CategorySearchBar()
+        
+        HorizontalDivider(
+            color = MaterialTheme.colorScheme.surfaceDim,
+            thickness = 1.dp
+        )
 
         LazyColumn(
             contentPadding = PaddingValues(1.dp),
             verticalArrangement = Arrangement.spacedBy(1.dp)
         ) {
 
-            items (
+            items(
                 items = items,
                 key = { item -> item.id }
             ) { item ->
@@ -42,11 +47,13 @@ fun CategoriesScreen(
                 ColumnItem(
                     title = item.name,
                     emoji = item.emoji,
-                    color = Color.White,
                     highEmphasis = true,
                 )
 
-                Divider(color = MaterialTheme.colorScheme.surfaceDim)
+                HorizontalDivider(
+                    color = MaterialTheme.colorScheme.surfaceDim,
+                    thickness = 1.dp
+                )
 
             }
 
