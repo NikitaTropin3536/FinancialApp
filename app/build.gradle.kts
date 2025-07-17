@@ -66,4 +66,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.negotiation)
+    implementation(libs.ktor.json)
+    implementation(libs.ktor.client.logging)
 }
